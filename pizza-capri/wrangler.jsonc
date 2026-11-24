@@ -1,9 +1,0 @@
-{
-  // Maquette Pizza Capri Angers (P&N agency), site statique servi par Cloudflare Workers
-  "name": "pizza-capri-angers",
-  "compatibility_date": "2026-11-01",
-  "assets": {
-    "directory": "./",
-    "not_found_handling": "404-page"
-  }
-}
