@@ -1,0 +1,257 @@
+/* Maquette Pizza Capri Angers, par P&N agency.
+   Un seul univers clair (rouge tomate, jaune soleil, crème), titres massifs.
+   Motif propre au sujet : la part de pizza. */
+:root{
+  color-scheme:light;
+  --tomate:#C6221C;
+  --tomate-fonce:#9C1510;
+  --soleil:#FFC83A;
+  --creme:#FFF3DF;
+  --encre:#3B0E0B;
+  --mer:#1E57C8;
+  --citron:#FFD65C;
+  --ciel:#A9DDF3;
+  --pistache:#C9E6A0;
+  --peche:#FFAE74;
+  --f-titre:"Bowlby One","Arial Black",Impact,sans-serif;
+  --f-texte:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --rayon:22px;
+  --page:1200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--encre);font-family:var(--f-texte);font-weight:500;font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{font-family:var(--f-titre);font-weight:400;line-height:.95;text-wrap:balance;letter-spacing:-.01em;overflow-wrap:break-word}
+:focus-visible{outline:3px solid var(--mer);outline-offset:3px;border-radius:6px}
+.wrap{width:min(100% - 36px,var(--page));margin-inline:auto}
+
+/* Filigrane de maquette, posé par-dessus toute la page */
+.page{position:relative;overflow-x:clip}
+.wm{position:absolute;top:0;left:0;right:0;bottom:0;z-index:50;pointer-events:none;background-image:url(filigrane.png);background-size:340px auto}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:14px;border:0;font:800 1rem var(--f-texte);text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 4px 0 rgba(59,14,11,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(59,14,11,.28)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(59,14,11,.28)}
+.btn-soleil{background:var(--soleil);color:var(--encre)}
+.btn-creme{background:var(--creme);color:var(--encre)}
+.btn-tomate{background:var(--tomate);color:var(--creme)}
+.btn-peche{background:var(--peche);color:var(--encre)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* Bandeau maquette */
+.maquette{background:var(--encre);color:var(--creme);text-align:center;font-size:.74rem;font-weight:600;letter-spacing:.04em;padding:7px 16px}
+
+/* Entête et navigation */
+.hero{background:var(--tomate);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 16px);color:var(--creme);padding-bottom:56px}
+.nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px 24px;padding-block:18px}
+.nav-liens{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-weight:700;font-size:.95rem}
+.nav-liens a{text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;white-space:nowrap}
+.nav-liens a:hover,.nav-liens a[aria-current="page"]{border-color:var(--soleil)}
+.nav-liens a[aria-current="page"]{color:var(--soleil)}
+.marque{font-family:var(--f-titre);font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:10px;line-height:1;white-space:nowrap}
+.marque b{font-weight:400;color:var(--soleil)}
+.marque small{font:800 .66rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;background:var(--creme);color:var(--tomate);padding:4px 8px;border-radius:999px}
+.nav .btn{justify-self:end;padding:10px 16px;font-size:.92rem}
+
+/* Héros de l'accueil */
+.hero-grille{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;padding-top:26px}
+.hero h1{font-size:clamp(5rem,8.4vw,7rem);text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .jaune{color:var(--soleil)}
+.hero-texte p{max-width:34ch;font-size:1.12rem;margin-top:20px}
+.hero-pizza{position:relative;width:min(100%,520px);justify-self:center}
+.hero-pizza svg{width:100%;height:auto;filter:drop-shadow(0 22px 22px rgba(50,6,3,.42))}
+.part-sortie{animation:sortir .9s cubic-bezier(.2,.9,.3,1.2) .35s both}
+@keyframes sortir{from{transform:translate(0,0)}to{transform:translate(16px,-16px)}}
+.pastille{position:absolute;left:-2%;bottom:2%;width:132px;aspect-ratio:1;border-radius:50%;background:var(--soleil);color:var(--encre);display:grid;place-content:center;text-align:center;transform:rotate(-11deg);box-shadow:0 6px 0 rgba(59,14,11,.3);outline:2px dashed rgba(59,14,11,.45);outline-offset:-9px}
+.pastille span{font:800 .72rem var(--f-texte);letter-spacing:.08em;text-transform:uppercase}
+.pastille strong{font:400 1.4rem/1 var(--f-titre);margin-top:3px}
+
+/* Entête des pages intérieures */
+.hero.court{padding-bottom:46px}
+.hero.court .titre-page{padding-top:30px;max-width:900px}
+.hero.court .sur{display:inline-block;font:800 .72rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;background:var(--soleil);color:var(--encre);padding:5px 11px;border-radius:999px;margin-bottom:16px}
+.hero.court h1{font-size:clamp(2.6rem,7.4vw,5rem);text-transform:uppercase}
+.hero.court h1 em{font-style:normal;color:var(--soleil)}
+.hero.court p{margin-top:18px;max-width:52ch;font-size:1.1rem}
+
+/* Store de boutique */
+.store{height:20px;background:repeating-linear-gradient(90deg,var(--tomate) 0 40px,var(--soleil) 40px 80px);-webkit-mask:radial-gradient(circle 20px at 20px 0,#000 97%,transparent 100%) 0 0/40px 100% repeat-x;mask:radial-gradient(circle 20px at 20px 0,#000 97%,transparent 100%) 0 0/40px 100% repeat-x}
+
+/* Sections */
+.bloc{padding:70px 0}
+.bloc.serre{padding-top:54px}
+.titre-xl{font-size:clamp(2.5rem,8.6vw,5.6rem);text-align:center}
+.titre-l{font-size:clamp(2.2rem,5.2vw,4rem)}
+.titre-m{font-size:clamp(1.7rem,3.6vw,2.5rem)}
+.sous{text-align:center;margin-top:14px;font-size:1.08rem;font-weight:600}
+.texte p{margin-top:18px;max-width:52ch;font-size:1.06rem}
+.centre{display:flex;justify-content:center;margin-top:34px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+/* 4 parts */
+.cartes{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:86px}
+.carte-p{border-radius:var(--rayon);padding:0 18px 20px;display:flex;flex-direction:column;gap:6px}
+.carte-p .art{width:88%;margin:-23% auto 6px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.carte-p .art img{width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 10px 16px rgba(59,14,11,.32)}
+.carte-p:hover .art{transform:rotate(18deg) scale(1.04)}
+.cat{font:800 .7rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.carte-p h3{font-size:1.5rem;overflow-wrap:anywhere}
+.carte-p .prix{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.carte-p .pill{background:var(--tomate);color:var(--creme);border-radius:10px;padding:7px 12px;font-weight:800;font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.carte-p .ent{font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.c-citron{background:var(--citron)}.c-ciel{background:var(--ciel)}.c-pistache{background:var(--pistache)}.c-peche{background:var(--peche)}
+
+/* Bandeau défilant */
+.defile{background:var(--soleil);color:var(--encre);overflow:hidden;padding:13px 0;border-block:3px solid var(--encre)}
+.defile-piste{display:flex;width:max-content;animation:defiler 32s linear infinite}
+.defile ul{display:flex;align-items:center;gap:26px;padding-right:26px;font:400 1.05rem var(--f-titre);text-transform:uppercase;white-space:nowrap}
+.defile li{display:flex;align-items:center;gap:26px}
+.defile li::after{content:"";border-left:8px solid transparent;border-right:8px solid transparent;border-top:15px solid var(--tomate)}
+@keyframes defiler{to{transform:translateX(-50%)}}
+
+/* Photo sur nappe */
+.nappe{position:relative;border-radius:var(--rayon);aspect-ratio:1/.92;overflow:hidden;background-color:#FFF8EC;background-image:linear-gradient(90deg,rgba(198,34,28,.55) 50%,transparent 50%),linear-gradient(rgba(198,34,28,.55) 50%,transparent 50%);background-size:52px 52px;display:grid;place-items:center}
+.nappe .photo{width:74%;margin:0;aspect-ratio:1;transform:rotate(-5deg);border:10px solid #FFFDF8;border-radius:16px;overflow:hidden;box-shadow:0 14px 22px rgba(59,14,11,.38)}
+.nappe .photo img{width:100%;height:100%;object-fit:cover}
+.etiquette{position:absolute;background:var(--ciel);color:var(--encre);font:800 .9rem var(--f-texte);padding:8px 14px;border-radius:10px;box-shadow:0 4px 0 rgba(59,14,11,.3)}
+.etiquette.a{top:7%;right:6%;transform:rotate(6deg)}
+.etiquette.b{bottom:7%;left:6%;transform:rotate(-5deg);background:var(--soleil)}
+.atouts{display:grid;gap:12px;margin-top:22px}
+.atouts li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.atouts li::before{content:"";margin-top:5px;border-left:9px solid transparent;border-right:9px solid transparent;border-top:17px solid var(--tomate)}
+.atouts b{font-weight:800}
+.chiffres{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;padding-top:22px;border-top:3px solid var(--encre)}
+.chiffres strong{display:block;font:400 1.55rem/1 var(--f-titre);white-space:nowrap;color:var(--tomate);font-variant-numeric:tabular-nums}
+.chiffres span{display:block;font-size:.85rem;font-weight:700;margin-top:6px;line-height:1.25}
+
+/* Carte complète */
+.menu{background:var(--encre);color:var(--creme);padding:70px 0}
+.menu-grille{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.menu-intro{position:sticky;top:24px}
+.menu-intro p{margin-top:18px;max-width:34ch;opacity:.9}
+.onglets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.onglets button{font:800 .92rem var(--f-texte);padding:9px 15px;border-radius:999px;border:2px solid rgba(255,243,223,.45);background:transparent;color:var(--creme);cursor:pointer}
+.onglets button[aria-selected="true"]{background:var(--soleil);border-color:var(--soleil);color:var(--encre)}
+.entete,.ligne{display:grid;grid-template-columns:1fr 5.2rem 5.6rem;gap:10px;align-items:baseline}
+.entete{font:800 .68rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;opacity:.7;padding:14px 0 8px;text-align:right}
+.ligne{padding:13px 0;border-top:2px solid rgba(255,243,223,.28)}
+.ligne:last-child{border-bottom:2px solid rgba(255,243,223,.28)}
+.ligne h3{font-size:1.18rem;line-height:1.1}
+.ligne .p{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ligne .p.part{color:var(--soleil)}
+.ligne .p.vide{opacity:.4}
+.ligne .boutique{grid-column:2/4;text-align:right;font-weight:700;font-size:.88rem;opacity:.75}
+.menu .note{margin-top:16px;font-size:.84rem;opacity:.7}
+
+/* Cartes de contenu (concept) */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.fiche{border-radius:var(--rayon);padding:24px 22px 26px}
+.fiche h3{font-size:1.5rem;margin-top:10px}
+.fiche p{margin-top:12px}
+.fiche .num{display:grid;place-content:center;width:46px;aspect-ratio:1;border-radius:50%;background:var(--tomate);color:var(--creme);font:400 1.15rem/1 var(--f-titre)}
+.bande{background:var(--encre);color:var(--creme)}
+.bande .atouts li::before{border-top-color:var(--soleil)}
+.rond{width:min(100%,440px);justify-self:center;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 18px 26px rgba(59,14,11,.4);border:10px solid #FFFDF8}
+.rond img{width:100%;height:100%;object-fit:cover}
+
+/* Frise (histoire) */
+.frise{margin-top:40px;display:grid;gap:0;border-left:4px solid var(--tomate);margin-left:10px}
+.frise li{position:relative;padding:0 0 30px 30px;display:grid;grid-template-columns:7.2rem 1fr;gap:6px 22px;align-items:baseline}
+.frise li:last-child{padding-bottom:4px}
+.frise li::before{content:"";position:absolute;left:-13px;top:.25em;border-left:11px solid transparent;border-right:11px solid transparent;border-top:20px solid var(--tomate)}
+.frise .an{font:400 2rem/1 var(--f-titre);color:var(--tomate);font-variant-numeric:tabular-nums}
+.frise h3{font:800 1.12rem/1.25 var(--f-texte);letter-spacing:0}
+.frise p{margin-top:4px;max-width:58ch}
+.frise li.ici .an{background:var(--soleil);color:var(--encre);padding:6px 10px;border-radius:10px;justify-self:start}
+
+/* Boutique */
+.adresse{margin-top:22px;font-weight:800;font-size:1.2rem;line-height:1.3;font-style:normal;display:block}
+.plan{border-radius:var(--rayon);overflow:hidden;background:#FFE7B0}
+.plan svg{width:100%;height:auto;font-family:var(--f-texte)}
+.villes{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.villes li{font-weight:800;padding:10px 16px;border-radius:999px;border:2px solid var(--encre)}
+.villes li.ici{background:var(--tomate);border-color:var(--tomate);color:var(--creme)}
+.villes li.ici small{font:800 .66rem var(--f-texte);letter-spacing:.12em;text-transform:uppercase;margin-left:6px;opacity:.9}
+.bloc.sable{background:#FFE7B0}
+
+/* Contact */
+.contact-grille{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.infos{display:grid;gap:18px;margin-top:26px}
+.infos h3{font:800 .72rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;color:var(--tomate)}
+.infos p,.infos address{font-style:normal;font-weight:700;font-size:1.08rem;margin-top:4px}
+.infos a{text-decoration-thickness:2px;text-underline-offset:3px}
+.formulaire{background:#FFFDF8;border-radius:var(--rayon);padding:26px;box-shadow:0 6px 0 rgba(59,14,11,.18);display:grid;gap:16px}
+.formulaire label{display:grid;gap:6px;font-weight:800;font-size:.92rem}
+.formulaire input,.formulaire select,.formulaire textarea{font:500 1rem var(--f-texte);color:var(--encre);background:var(--creme);border:2px solid rgba(59,14,11,.35);border-radius:12px;padding:12px 14px;width:100%}
+.formulaire textarea{min-height:130px;resize:vertical}
+.formulaire .demo{font-size:.84rem;font-weight:600;opacity:.75}
+.formulaire .etat{font-weight:800;background:var(--pistache);border-radius:12px;padding:12px 14px}
+.formulaire .etat[hidden]{display:none}
+
+/* Appel final */
+.appel{background:var(--soleil);padding:54px 0;text-align:center;border-top:3px solid var(--encre)}
+.appel p{margin-top:12px;font-weight:600;font-size:1.06rem}
+.appel .actions{justify-content:center}
+
+/* Pied */
+.pied{background:var(--tomate);color:var(--creme);padding:44px 0 26px}
+.pied-grille{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.pied .marque{font-size:1.7rem}
+.pied .slogan{margin-top:12px;font-weight:700;font-size:1.05rem;max-width:26ch}
+.pied h3{font:800 .72rem var(--f-texte);letter-spacing:.14em;text-transform:uppercase;color:var(--soleil);margin-bottom:10px}
+.pied li{margin-top:6px}
+.pied li a{text-decoration:none;font-weight:600;border-bottom:2px solid transparent}
+.pied li a:hover{border-color:var(--soleil)}
+.mentions{margin-top:30px;padding-top:16px;border-top:2px solid rgba(255,243,223,.3);font-size:.78rem;line-height:1.5;opacity:.9}
+
+/* Page introuvable */
+.perdu{text-align:center;padding:90px 0}
+.perdu .actions{justify-content:center}
+
+@media (max-width:1040px){
+  .nav{grid-template-columns:1fr auto;row-gap:12px}
+  .nav-liens{grid-column:1/-1;grid-row:2}
+}
+@media (max-width:900px){
+  .marque{font-size:1.3rem}
+  .hero{padding-bottom:44px}
+  .hero-grille{grid-template-columns:1fr;gap:26px;padding-top:18px}
+  .hero h1{font-size:clamp(3rem,15.5vw,6rem)}
+  .hero.court h1{font-size:clamp(2.3rem,11vw,4rem)}
+  .hero-pizza{width:min(92%,440px)}
+  .pastille{width:112px;left:-4%}
+  .pastille strong{font-size:1.15rem}
+  .cartes{grid-template-columns:repeat(2,1fr);gap:64px 14px;margin-top:70px}
+  .carte-p{padding:0 13px 15px}
+  .carte-p h3{font-size:min(1.1rem,4.1vw)}
+  .duo,.contact-grille{grid-template-columns:1fr;gap:30px}
+  .chiffres{grid-template-columns:repeat(2,1fr);row-gap:20px}
+  .menu-grille{grid-template-columns:1fr;gap:28px}
+  .menu-intro{position:static}
+  .trio{grid-template-columns:1fr;gap:16px}
+  .frise li{grid-template-columns:1fr;padding-left:26px}
+  .pied-grille{grid-template-columns:1fr 1fr}
+  .pied-grille>div:first-child{grid-column:1/-1}
+  .bloc,.menu{padding-block:52px}
+  .formulaire{padding:20px}
+}
+@media (max-width:420px){
+  .nav .btn{padding:9px 12px;font-size:.85rem}
+  .nav-liens{gap:6px 16px;font-size:.9rem}
+  .marque small{display:none}
+  .entete,.ligne{grid-template-columns:1fr 4.4rem 4.9rem;gap:6px}
+  .ligne h3{font-size:1.02rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .part-sortie{animation:none;transform:translate(16px,-16px)}
+  .defile-piste{animation:none}
+  .carte-p:hover .art{transform:none}
+  .btn{transition:none}
+}
